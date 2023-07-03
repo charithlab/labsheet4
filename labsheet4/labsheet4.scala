@@ -3,14 +3,11 @@ import scala.io.StdIn
 object question1 {
 
     def interestperyear(amount : Float) : Float = {
-        if(amount<20000){
-            amount*0.02f
-        }else if(amount<200000){
-            amount*0.04f
-        }else if(amount<20000000){
-            amount*0.035f
-        }else{
-            amount*0.065f
+        amount match {
+            case amount if amount <20000 => amount*0.02f
+            case amount if amount <200000 => amount*0.04f
+            case amount if amount <20000000 => amount*0.035f
+            case amount => amount*0.065f
         }
     }
 
@@ -23,15 +20,13 @@ object question1 {
 
 object question2 {
     def matching(input : Int) = {
-        if(input<0){
-            println("Negative Number.")
-        }else if(input == 0){
-            println("0 is Entered.")
-        }else if(input%2==1){
-            println("Number is Odd.")
-        }else{
-            println("Number is Even.")
+        input match {
+            case input if input < 0 => println("Negative Number.")
+            case input if input == 0 => println("0 is Entered.")
+            case input if input%2 == 1 => println("Number is Odd.")
+            case input => println("Number is Even.")
         }
+
     }
 
     def main(args : Array[String]) = {
